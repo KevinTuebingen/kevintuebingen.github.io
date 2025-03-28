@@ -1,0 +1,337 @@
+<html>
+<head>
+    <title>Burn</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header class="d-flex flex-column" style="height: 40vh;">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Burn</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="features.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                         <a class="nav-link" href="download.html">Download</a>
+                     </li>
+                        <li class="nav-item">
+                             <a class="nav-link active" href="dev-blog.html">Dev-Blog</a>
+                        </li>
+                        <li class="nav-item">
+                         <a class="nav-link" href="https://github.com/Vogelmensch/Burn">Git Hub</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="https://youtu.be/CjV70GAbHJ0?si=9y2F4kLKQXW84FgN">Trailer</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+   <div id="title" class="d-flex flex-column justify-content-start align-items-start flex-grow-1">
+       <h2>Dev Blog</h2>
+       <h4>Our semi-regularly updated Dev Blog that mainly shows the early development stages</h4>
+    </div>
+   </header>
+   <main class="d-flex flex-column gap-3">
+    <div class="blog">
+        <div class="blog-title d-flex flex-row align-items-end flex-grow-1">
+            <h3>BURN! The game</h3>
+            <div class="flex-grow-1"></div>
+            <h4>11.11.2024</h4>
+        </div>
+        <div class="blog-content d-flex flex-column">
+            <h5>Gameplay:</h5>
+            <ul>
+                <li>
+                    The player starts with a small fire and must try to spread out tactically
+                    <ul>
+                        <li>Try to avoid the obstacles as best you can</li>
+                    </ul>
+                </li>
+                <li>
+                    Rooms with flammable objects
+                    <ul>
+                        <li>e.g. wooden floor, carpet, furniture, gas cylinders, ...</li>
+                    </ul>
+                </li>
+                <li>
+                    Obstacles:
+                    <ul>
+                        <li>Smoke detectors can find the fire</li>
+                        <li>People can find the fire, alert other people and extinguish it</li>
+                        <li>Sprinkler system could extinguish the fire</li>
+                    </ul>
+                </li>
+            </ul>
+            <h5>Goal:</h5>
+            <p>Spread out and burn everything down without being extinguished</p>
+            <h5>Primary Game Loop:</h5>
+            <p>The player spends points to perform actions and receive feedback:</p>
+            <ul>
+                <li>Gust of wind → Enlarges and spreads the fire</li>
+                <li>Oil trail → Spreads the fire in a targeted manner</li>
+                <li>Fireball (split and throw) → Fire jumps to a new location</li>
+                <li>Knock over objects → Surroundings change</li>
+            </ul>
+            <h5>Other Ideas:</h5>
+            <p>You can “possess” different things after buying them in the store:</p>
+            <ul>
+                <li>These can be strategically placed to spread your fire</li>
+            </ul>
+            <h5>How to Get Points:</h5>
+            <ul>
+                <li>Points per second:
+                    <ul>
+                        <li>Temporal constant → You get a certain number of points per time</li>
+                        <li>Spatial constant → The bigger you are, the more points you get</li>
+                    </ul>
+                </li>
+                <li>Intermediate goals → Special items (e.g. gas bottle), for which there is a big reward</li>
+            </ul>
+            <h5>Technology:</h5>
+            <ul>
+                <li>First idea: Computational Fluid Dynamics
+                    <ul>
+                        <li>Simulate the spread of fire as realistically as possible</li>
+                        <li>Simulate air circulation, heat radiation, material properties, ...</li>
+                    </ul>
+                </li>
+                <li>Discretization of the space in voxels
+                    <ul>
+                        <li>Save computational effort: The game should not require 4090</li>
+                        <li>Simple implementation</li>
+                        <li>Individual level design</li>
+                    </ul>
+                </li>
+                <li>Paper: Modeling fires using computational fluid dynamics by Kevin McGrattan & Stewart Miles</li>
+            </ul>
+            <div class="d-flex flex-row gap-3">
+                <img src="img/PHOTO-2024-11-12-18-22-56.jpg" alt="Description of the image" width="50%">
+                <video controls width="50%">
+                    <source src="img/2d fire.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="blog">
+        <div class="blog-title d-flex flex-row align-items-end flex-grow-1">
+            <h3>First Tests</h3>
+            <div class="flex-grow-1"></div>
+            <h4>19.11.2024</h4>
+        </div>
+        <div class="blog-content d-flex flex-column">
+            <h5>What we have done so far:</h5>
+            <p>We've implemented a 2D- firesimulation. The numbers represent duration and temperature that a object could possibly hold.</p>
+            <p>We've also implemented in a 3D-world how an object could spread to another object and also how a player could possibly manipulate its surrounding by throwing something - that could be used for knocking over objects by scaling the force down or if we split the fire, how we could throw it.</p>
+            <video controls width="50%">
+                <source src="img/First_Video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="blog d-flex flex-column">
+        <div class="blog-title d-flex flex-row align-items-end flex-grow-1">
+            <h3>First Level</h3>
+            <div class="flex-grow-1"></div>
+            <h4>06.12.2024</h4>
+        </div>
+        <div class="blog-content d-flex flex-column">
+            <h5>We completed a first little level:</h5>
+            <p>We start as a small candle in a room and you have to try to spread to another room, where your goal is (in our level: an oven) . <br>
+                You can spread by knocking over objects to spread you fire to the object and move your way like that through the first level. <br>
+                To make it a little bit more exciting we've also implement a timer. Within this limited time you have to carefully strategies which object you want to enlighten, since you have a limitation in the knocking over objects or starting a new small fire. 
+            </p>
+            <p>
+                Also we have decided to go with the aproach you can see in the video below, where objects are first their entire prefab and then turn into cubes.
+            </p>
+            <video controls width="50%">
+                <source src="img/first prototype.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="blog d-flex flex-column">
+        <div class="blog-title d-flex flex-row align-items-end flex-grow-1">
+            <h3>The Rain and Fire Update</h3>
+            <div class="flex-grow-1"></div>
+            <h4>07.01.2025</h4>
+        </div>
+        <div class="blog-content d-flex flex-column">
+            <h5>For this blog post we have a couple more things to share:</h5>
+            <ul>
+                <li>
+                    A new level featuring the sorceress Ellen, who needs to use her firery powers to wake up from her eternal sleep.
+                </li>
+                <li>
+                    Rain will now extinguish fire.
+                </li>
+                <li>
+                    Shoot a fireball to spread the fire.
+                </li>
+                <li>
+                    Camera movement was improved.
+                </li>
+                <li>
+                    Performance was improved 
+                </li>
+                <li>
+                    Enemies that try to stop the fire are in development.
+                </li>
+                <li>
+                    Event screens like start and game over screens exist now.
+                </li>
+                <li>
+                    Moving objects now functions better.
+                </li>
+            </ul>
+            <img src="img/startScreenOld.gif" width="50%">
+        </div>
+    </div>
+    <div class="blog d-flex flex-column">
+        <div class="blog-title d-flex flex-row align-items-end flex-grow-1">
+            <h3>The Final Stretch</h3>
+            <div class="flex-grow-1"></div>
+            <h4>28.01.2025</h4>
+        </div>
+        <div class="blog-content d-flex flex-column">
+            <h5>The game development is coming to an end...</h5>
+            <p>We are excited to share the progress we've made as we approach the final stages of development. Here's what we've been working on:</p>
+            <h5>Levels:</h5>
+            <ul>
+                <li>Tutorial Level: Learn what you can do in the game</li>
+                <li>Level 1: Getting used to the gameplay</li>
+                <li>Level 2: A more complex level</li>
+            </ul>
+            <h5>What We Improved:</h5>
+            <ul>
+                <li>We improved the control mechanism and added a function for a controller.</li>
+                <li>We enhanced the start screen and the game over screen.</li>
+                <li>We added rain (water function) to make the gameplay more dynamic.</li>
+                <li>We designed different levels to provide a variety of challenges.</li>
+                <li>We implemented a timer, so you have to solve the level within a specific time.</li>
+                <li>We worked on storytelling to make the game more engaging.</li>
+            </ul>
+            <video controls width="50%">
+                <source src="img/mini trailer.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="blog d-flex flex-column">
+        <div class="blog-title d-flex flex-row align-items-end flex-grow-1">
+            <h3>Fine Tuning and Presentation</h3>
+            <div class="flex-grow-1"></div>
+            <h4>11.02.2025</h4>
+        </div>
+        <div class="blog-content d-flex flex-column">
+            <h5>In the past few weeks, we worked on the fine tuning of the game as well as the presentation:</h5>
+            <ul>
+                <li>We incorporated a menu to navigate from level to level.</li>
+                <li>We fixed the smoothness of the game for a better experience.</li>
+                <li>We created an Itch.io page where you can download the game.</li>
+                <li>We worked on the trailer, thumbnail, and promotional videos.</li>
+                <li>We added fire noise to enhance the atmosphere.</li>
+            </ul>
+            <h5>What's Next?</h5>
+            <p>For the 12 ETCS, we also planned a few things, but more on that in the presentation...</p>
+            <p>A small sneak peek: An AI opponent is already in the making!</p>
+            <video controls width="50%">
+                <source src="img/ai preview.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="blog d-flex flex-column">
+        <div class="blog-title d-flex flex-row align-items-end flex-grow-1">
+            <h3>Devblog</h3>
+            <div class="flex-grow-1"></div>
+            <h4>23.02.2025</h4>
+        </div>
+        <div class="blog-content d-flex flex-column">
+            <h5>We've finished the development of the prototype in the past weeks and done some polishing. Now we want to focus on polishing the game and bringing some new features out as well.</h5>
+            <h5>Our Roadmap:</h5>
+            <ul>
+                <li>Better fire simulation</li>
+                <li>Adding water and a fire extinguishing AI</li>
+                <li>Improving the UI</li>
+                <li>And some more cool things</li>
+            </ul>
+            <h5>Better Fire Simulation 🔥</h5>
+            <p>While burning things is already a lot of fun at the moment, we want to work on improving our fire simulation even more. This way, burning things will feel more natural, and fire will spread less unexpectedly, making everything a little less frustrating as fire is already unpredictable enough.</p>
+            <h5>Water and AI 🤖</h5>
+            <p>We already worked on having some evil vikings running around and tormenting you. Now we want to add some water as well so they can try and stop you from burning down their homes.</p>
+            <h5>UI Improvements 👾</h5>
+            <p>If you're not completely familiar with the game, picking up things and knowing what you're carrying can be quite difficult, as well as knowing how much longer an object is burning. That's why we want to add some more feedback so everything gets a little clearer.</p>
+        </div>
+    </div>
+    <div class="blog d-flex flex-column">
+        <div class="blog-title d-flex flex-row align-items-end flex-grow-1">
+            <h3>Devblog</h3>
+            <div class="flex-grow-1"></div>
+            <h4>11.03.2025</h4>
+        </div>
+        <div class="blog-content d-flex flex-column">
+            <h5>Our focus for the past week was on refining the game in regards to the fire simulation, the UI, and adding water & fire extinguishing AI.</h5>
+            <h5>We have achieved the following results:</h5>
+            <h5>Water & Fire Extinguishing AI</h5>
+            <p>We added water with the ability to extinguish fire. It can also be used by the AI to stop the fire from spreading.</p>
+            <h5>UI</h5>
+            <p>We implemented visual feedback to show how long an object you are carrying will burn, as well as feedback to indicate whether you are currently carrying an object or not.</p>
+            <p>Additionally, we added a red indication on the screen borders to show the directions of all burning things, so the player doesn't lose track of what is burning at the moment.</p>
+            <h5>Next Steps:</h5>
+            <ul>
+                <li>Now that the UI is almost complete regarding functionality, we want to clean up the look of all parts of the user interface to make it look like a fully designed game.</li>
+                <li>We aim to achieve a uniform logic across the different levels, ensuring consistency in scripts and details.</li>
+                <li>In addition to finalizing the existing functionality, we want to start building our bonus level(s) based on the ideas we collected in the past weeks.</li>
+            </ul>
+            <div class="d-flex flex-row gap-3">
+                <img src="img/redBorder.png" alt="Description of the image" width="80%">
+                <video controls width="20%">
+                    <source src="img/health.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+   </main>
+   <footer class="footer">
+        <div class="container-fluid">
+            <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                <h3>Lightning Group</h3>
+                <ul class="list-unstyled d-flex gap-3">
+                    <li>
+                        <a href="#">Features</a>
+                    </li>
+                    <li>
+                        <a href="#">Download</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#">News</a>
+                    </li>
+                    <li>
+                        <a href="#">Git Hub</a>
+                    </li>
+                    <li>
+                        <a href="#">Trailer</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+   </footer>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
