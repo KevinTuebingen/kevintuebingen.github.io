@@ -1,29 +1,150 @@
-html {
-    background-color: rgb(95, 69, 132);
+:root {
+    --text-color: rgb(222, 217, 208);
 }
-#middle {
-    width:60%;
-    margin-left:auto;
-    margin-right:auto;
-    background-color: rgb(63, 107, 116);
-    margin-top: 0px;
-    margin-bottom: 0px;
-    height: 100vh;
-}
-header {
-    text-align: center;
 
-}
 h1 {
-    margin: 0px;
+    font-size: 200px;
+    font-weight: 700;
 }
+
 h2 {
-    padding: 12px 12px;
+    font-size: 90px;
+}
+
+h3 {
+    font-size: 50px;
+}
+
+#buttons {
+    margin-left: 12px;
+    margin-top: 12px;
+}
+
+header {
+    position: relative; /* Ensure the header is positioned for the pseudo-element */
+    background-image: url("/img/background.JPG");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    padding: 24px 128px;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    z-index: 1; /* Place the gradient below the content */
+    pointer-events: none; /* Ensure the gradient does not block interactions */
+}
+
+header > * {
+    position: relative; /* Ensure content is above the gradient */
+    z-index: 2;
+}
+
+.navbar {
+    background-color: rgba(0,0,0,0.75);
+}
+
+.nav-link {
+    color: var(--text-color);
+}
+
+.nav-link.active {
+    color: rgb(238,178,67) !important;
+}
+
+.nav-link:hover {
+    color: rgb(238,178,67);
+}
+
+.navbar-brand {
+    color: var(--text-color);
+}
+
+.quote {
+    background-color: rgb(32, 32, 32);
+    padding: 32px 128px;
+    color: var(--text-color);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+}
+
+.quote h3 {
+    padding-bottom: 12px;
+    font-size: 40px;
+}
+
+.quote p {
+    font-size: 30px;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    padding-top: 12px;
+}
+
+.content {
+    padding: 64px 128px;
+    color: var(--text-color);
+    margin-top: -22px;
+}
+
+.content button {
+    margin-top: 12px;
+}
+
+.burn-castle {
+    background-image: url("/img/burn_castle1.png");
+    background-position: center;
+}
+
+footer {
+    padding: 32px 0px;
+    background-color: rgb(4, 4, 4);
+    margin-top: -22px;
+}
+
+.footer h3 {
+    color: var(--text-color);
+}
+
+.footer ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
     text-decoration: underline;
 }
-.nav {
-    border: 1px solid black;
-    margin: 0px;
-    width: auto;
-    padding: 2px;
+
+.button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 20px;
+    border-style: solid;
+    border-width: 3px;
+}
+
+.btn-primary {
+    background-color: rgb(208, 50, 50);
+    border-color: rgb(205, 81, 81);
+}
+
+.btn-secondary {
+    background-color: rgb(32,32,32);
+    border-color: rgb(58, 58, 58);
+    color: var(--text-color);
+}
+
+.vikingHall {
+    background-image: url("img/VikingHall_start_frame.png");
+}
+
+.burn-tut {
+    background-image: url("img/burn_tut1.png");
+    background-position: 20px;
 }
